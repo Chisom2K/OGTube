@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+      "target": "es6", // version of js
+      "module": "commonjs",
+      "rootDir": "src", //where all our code is going to be 
+      "outDir": "dist", // where all the build files are gonna be 
+      "strict": true,
+      "esModuleInterop": true}, // config for type checking
+    "include": ["src/**/*.ts"], // includes all typescript files within the node directory 
+    "exclude": ["node_modules"] // excludes all node module files
+  }
