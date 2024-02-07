@@ -17,9 +17,8 @@ app.post('/process-video', (req, res) => {
 
   // Create the ffmpeg command
   ffmpeg(inputFilePath)
-    .outputOptions('-vf', 'scale=-2:720') // 360p
+    .outputOptions('-vf', 'scale=-2:720') // 720p
     .on('end', function() {
-        console.log('Processing finished successfully');
         res.status(200).send('Processing finished successfully');
     })
     .on('error', function(err: any) {
