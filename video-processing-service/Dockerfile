@@ -8,7 +8,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install ffmpeg in the container
-RUN apt-get update && apt-get install -y ffmpeg
+RUN apt-get update && apt-get install -y ffmpeg 
 
 # Install any needed packages specified in package.json
 RUN npm install
