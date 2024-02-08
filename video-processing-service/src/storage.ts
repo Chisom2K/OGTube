@@ -56,7 +56,7 @@ export function convertVideo(rawVideoName: string, processedVideoName: string){
 
         console.log(
             `gs://${rawVideoBucketName}/${fileName} download to ${localRawVideoPath}/${fileName}.`
-        )
+        );
     }
 
     /**
@@ -67,7 +67,7 @@ export function convertVideo(rawVideoName: string, processedVideoName: string){
      export async function uploadProcessedVideo(fileName: string) {
         const bucket = storage.bucket(processedVideoBucketName);
 
-        await bucket.upload(`${localProcessedVideoPath}/${fileName}`,{
+        await storage.bucket(processedVideoBucketName).upload(`${localProcessedVideoPath}/${fileName}`,{
             destination: fileName 
         });
         console.log(`${localProcessedVideoPath}/${fileName} uploaded to gs://${processedVideoBucketName}/${fileName}.`)

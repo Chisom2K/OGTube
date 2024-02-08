@@ -1,5 +1,10 @@
 import express from 'express';
-import { convertVideo, deleteProcessedVideo, deleteRawVideo, downloadRawVideo, setupDirectories, uploadProcessedVideo } from './storage';
+import { convertVideo,
+   deleteProcessedVideo,
+    deleteRawVideo,
+     downloadRawVideo,
+      setupDirectories,
+       uploadProcessedVideo } from './storage';
 
 setupDirectories();
 
@@ -27,7 +32,7 @@ app.post('/process-video', async (req, res) => {
 
   // Convert video to 720p
   try{
-    convertVideo(inputFileName, outputFileName)
+    await convertVideo(inputFileName, outputFileName)
   }catch(err) {
     await Promise.all([
       deleteRawVideo(inputFileName),
@@ -38,7 +43,7 @@ app.post('/process-video', async (req, res) => {
   }
 
   //Upload the processed video to Cloud Storage 
-  await uploadProcessedVideo(outputFileName)
+  await uploadProcessedVideo(outputFileName);
 
   await Promise.all([
     deleteRawVideo(inputFileName),
